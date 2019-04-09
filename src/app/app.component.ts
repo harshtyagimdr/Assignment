@@ -20,6 +20,7 @@ import { NgForOf } from '@angular/common';
 export class AppComponent implements OnInit {
 
   showError1 = false;
+  IsDisabled=true;
   showError2=false;
   ngOnInit(): void {
     this.mindate.setDate(this.now.getDate()- 2 );
@@ -39,10 +40,12 @@ export class AppComponent implements OnInit {
     if(value==null){
       this.showError1 = false;
       this.showError2 = false;
+      this.IsDisabled=true;
     }
     if( (value != null && value.getTime()>this.mindate.getTime()) && (value.getTime()<this.maxdate.getTime()) ){
       this.showError1 = false;
       this.showError2 = false;
+      this.IsDisabled=false;
     }
       
   })
@@ -74,7 +77,6 @@ export class AppComponent implements OnInit {
       .subscribe((res:any)=> {
         this.products = res.response.data;
       
-         console.log(res)
       });
       }
   post(apiUri,value)
