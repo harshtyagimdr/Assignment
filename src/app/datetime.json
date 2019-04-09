@@ -1,0 +1,39 @@
+{
+    "response": {
+        "data": [
+            {
+                "type": "datetime",
+                "label": "Enter Date",
+                "inputType": "date",
+                "name": "date",
+                "validations": [
+                    {
+                        "name": "required",
+                        "message": "Date is required"
+                    },
+                    {
+                        "name": "min",
+                        "value": "-2 day",
+                        "message": "Date cannot be less than the past 2 days"
+                    },
+                    {
+                        "name": "max",
+                        "value": "+5 day",
+                        "message": "Date cannot be more than 5 days from today"
+                    }
+                ]
+            },
+            {
+                "type": "button",
+                "action": "api",
+                "api": {
+                    "uri": "https://ca.platform.simplifii.xyz/api/v1/custom/submit_form",
+                    "method": "POST",
+                    "authEnabled": false
+                },
+                "label": "Save"
+            }
+        ]
+    },
+    "msg": ""
+}
